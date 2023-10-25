@@ -27,7 +27,7 @@
 
 # 📖 Blog App <a name="about-project"></a>
 
-This is a RoR **Blog App**.
+This is a **Blog App** created with Ruby on Rails, to manage posts, users, comments and likes.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -140,7 +140,7 @@ For running tests:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **API documentation.**
+- [ ] **Extra functionality when creating a posts with more media options**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
