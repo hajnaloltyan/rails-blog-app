@@ -31,4 +31,18 @@ RSpec.describe User, type: :model do
     subject.valid?
     expect(subject.errors[:posts_counter]).to include('is not a number')
   end
+
+  it 'shows the 3 most recent posts' do
+    5.times do |i|
+      Post.create(
+        title: "Post - #{i}",
+        text: 'Post has text',
+        author_id: subject.id,
+        comments_counter: 0,
+        likes_counter: 0
+      )
+    end
+
+    expect(subject.most_recent_posts).to eq(Post.last(3))
+  end
 end

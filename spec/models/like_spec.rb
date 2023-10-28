@@ -42,4 +42,9 @@ RSpec.describe Like, type: :model do
     subject.valid?
     expect(subject.errors[:post]).to include('must exist')
   end
+
+  it 'updates the post likes_counter' do
+    subject.save
+    expect(post.likes_counter).to eq(1)
+  end
 end

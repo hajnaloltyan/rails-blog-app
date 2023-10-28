@@ -42,4 +42,8 @@ RSpec.describe Comment, type: :model do
     subject.valid?
     expect(subject.errors[:post]).to include('must exist')
   end
+
+  it 'updates the post comments counter' do
+    expect { subject.save }.to change { post.comments_counter }.by(1)
+  end
 end
