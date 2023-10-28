@@ -57,7 +57,7 @@ RSpec.describe Post, type: :model do
       Comment.create(
         text: "Comment - #{i}",
         post: subject,
-        user: user
+        user:
       )
     end
 
