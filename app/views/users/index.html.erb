@@ -1,0 +1,8 @@
+<h2>List of all Users</h2>
+
+<% @users.each do |user| %>
+  <article>
+    <h3><%= user.name %></h3>
+    <p>Number of posts: <%= user.posts.count %></p>
+  </article>
+<% end %>
