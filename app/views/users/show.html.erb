@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User's Profile</title>
+</head>
+<body>
+  <h2>User's Profile</h2>
+
+  <section>
+    <article>
+      <div>
+        <h3><%= user.name %></h3>
+        <p>Number of posts: <%= user.posts_counter %></p>
+      </div>
+      <p><%= user.bio %></p>
+    </article>
+
+    <% @user.posts.each do |post| %>
+      <article>
+        <h3><%= post.title %></h3>
+        <p><%= post.text %></p>
+        <h6>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></h6>
+      </article>
+    <% end %>
+  </section>
+</body>
+</html>
