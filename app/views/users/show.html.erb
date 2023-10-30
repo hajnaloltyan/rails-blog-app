@@ -6,24 +6,22 @@
 <body>
   <h2>User's Profile</h2>
 
-  <section>
+  <article>
+    <div>
+      <h3><%= user.name %></h3>
+      <p>Number of posts: <%= user.posts_counter %></p>
+    </div>
+    <p><%= user.bio %></p>
+  </article>
+
+  <% @user.posts.each do |post| %>
     <article>
-      <div>
-        <h3><%= user.name %></h3>
-        <p>Number of posts: <%= user.posts_counter %></p>
-      </div>
-      <p><%= user.bio %></p>
+      <h3><%= post.title %></h3>
+      <p><%= post.text %></p>
+      <h6>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></h6>
     </article>
+  <% end %>
 
-    <% @user.posts.each do |post| %>
-      <article>
-        <h3><%= post.title %></h3>
-        <p><%= post.text %></p>
-        <h6>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></h6>
-      </article>
-    <% end %>
-
-    <button>See all posts</button>
-  </section>
+  <button>See all posts</button>
 </body>
 </html>
