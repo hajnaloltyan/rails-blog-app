@@ -5,23 +5,5 @@
 </head>
 <body>
   <h2>List of all User's Posts</h2>
-
-  <article>
-    <h3><%= user.name %></h3>
-    <p>Number of posts: <%= user.posts_counter %></p>
-  </article>
-
-  <% @posts.each do |post| %>
-    <article>
-      <h3><%= post.title %></h3>
-      <p><%= post.text %></p>
-      <h6>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></h6>
-      <div>
-        <p>List of different comments...</p>
-      </div>
-    </article>
-  <% end %>
-
-  <button>Pagination</button>
 </body>
 </html>
