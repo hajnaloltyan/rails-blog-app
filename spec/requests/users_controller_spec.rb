@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "UsersControllers", type: :request do
-  describe "GET /index" do
+RSpec.describe 'UsersControllers', type: :request do
+  describe 'GET /index' do
     it 'returns a successful response' do
       get users_path
       expect(response).to have_http_status(:success)
@@ -18,9 +18,10 @@ RSpec.describe "UsersControllers", type: :request do
     end
   end
 
-  describe "GET /show" do
+  describe 'GET /show' do
     before do
-      @user = User.create(name: 'Hajnal Oltyan', photo: 'https://via.placeholder.com/150', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', posts_counter: 0)
+      @user = User.create(name: 'Hajnal Oltyan', photo: 'https://via.placeholder.com/150',
+                          bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', posts_counter: 0)
     end
 
     it 'returns a successful response' do

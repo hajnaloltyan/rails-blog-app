@@ -1,10 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "PostsControllers", type: :request do
-  describe "GET /index" do
+RSpec.describe 'PostsControllers', type: :request do
+  describe 'GET /index' do
     before do
-      @user = User.create(name: 'Hajnal Oltyan', photo: 'https://via.placeholder.com/150', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', posts_counter: 0)
-      @post = Post.create(title: 'Lorem ipsum', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', author_id: @user.id)
+      @user = User.create(name: 'Hajnal Oltyan', photo: 'https://via.placeholder.com/150',
+                          bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', posts_counter: 0)
+      @post = Post.create(title: 'Lorem ipsum', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                          author_id: @user.id)
     end
 
     it 'returns a successful response' do
@@ -23,10 +25,13 @@ RSpec.describe "PostsControllers", type: :request do
     end
   end
 
-  describe "GET /show" do
+  describe 'GET /show' do
     before do
-      @user = User.create(name: 'Hajnal Oltyan', photo: 'https://via.placeholder.com/150', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', posts_counter: 0)
-      @post = @user.posts.create!(title: 'Lorem ipsum', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', author_id: @user.id, comments_counter: 0, likes_counter: 0)
+      @user = User.create(name: 'Hajnal Oltyan', photo: 'https://via.placeholder.com/150',
+                          bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', posts_counter: 0)
+      @post = @user.posts.create(title: 'Lorem ipsum',
+                                 text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                                 author_id: @user.id, comments_counter: 0, likes_counter: 0)
     end
 
     it 'returns a successful response' do
