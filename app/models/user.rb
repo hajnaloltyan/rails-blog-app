@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :posts, foreign_key: :author_id
 
   def most_recent_posts(limit = 3)
-    posts.order(created_at: :desc).limit(limit)
+    posts.order(created_at: :asc).limit(limit)
   end
 
   validates :name, presence: true
