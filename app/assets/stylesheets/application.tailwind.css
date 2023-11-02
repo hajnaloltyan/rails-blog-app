@@ -2,12 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .page-title {
-    @apply text-3xl font-bold m-4 text-center;
-  }
-  
-  .custom-border {
-    @apply border-2 border-black;
-  }
+.page-title {
+  @apply text-3xl font-bold m-4 text-center;
+}
+
+.custom-border {
+  @apply border-2 border-black;
 }
