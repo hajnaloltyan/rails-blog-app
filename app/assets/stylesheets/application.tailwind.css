@@ -12,7 +12,4 @@
   .custom-border {
     @apply border-2 border-black;
   }
-  .reset-link {
-    @apply text-decoration-none text-black;
-  }
 }
