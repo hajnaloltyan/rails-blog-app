@@ -4,6 +4,38 @@
   <title>User's Profile</title>
 </head>
 <body>
-  <h2>User's Profile</h2>
+  <section class="flex flex-col mx-auto">
+    <h2 class="page-title">User's Profile</h2>
+
+    <article class="flex gap-6 mb-6">
+      <%= image_tag @user.photo, alt: @user.name %>
+      <div class="flex m-2 px-4 py-2 w-[80%] lg:w-[25vw] custom-border justify-between">
+        <h3 class="text-2xl font-bold self-center"><%= @user.name %></h3>
+        <p class="text-sm self-end">Number of posts: <%= @user.posts_counter %></p>
+      </div>
+    </article>
+
+    <article class="custom-border px-4 py-2 mb-6">
+      <h3 class="font-bold mb-2">Bio</h3>
+      <p><%= @user.bio %></p>
+    </article>
+
+    <% @user.posts.each do |post| %>
+      <a class="reset-link" href="<%= user_post_path(@user.id) %>">
+        <article class="flex flex-col gap-4 custom-border px-4 py-2 mb-6">
+          <h3 class="font-bold"><%= post.title %></h3>
+          <p><%= post.text %></p>
+          <h6 class="text-sm self-end">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></h6>
+        </article>
+      </a>
+    <% end %>
+
+    <a class="reset-link custom-border mb-4 w-20" href="<%= user_posts_path(@user) %>" >
+        See all posts
+    </a>
+
+    <%= link_to "Go Back", :back, class:'custom-border w-20' %>
+
+  </section>
 </body>
 </html>
