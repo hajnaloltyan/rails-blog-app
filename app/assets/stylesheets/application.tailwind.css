@@ -3,12 +3,10 @@
 @tailwind utilities;
 
 @layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-400;
-  }
   .page-title {
     @apply text-3xl font-bold m-4 text-center;
   }
+  
   .custom-border {
     @apply border-2 border-black;
   }
