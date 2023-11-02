@@ -1,1 +1,21 @@
-<h2>Selected Post</h2>
+<section class="mx-auto">
+  <article class="flex flex-col px-4 py-2 w-[80%] lg:w-[25vw] justify-between custom-border">
+    <div class="pb-6 flex justify-between">
+      <h3><%= @post.title %> by <%= @user.name %></h3>
+      <h6>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></h6>
+    </div>
+    <p class="pt-6"><%= @post.text %></p>
+  </article>
+
+  <div class="px-4 py-2 custom-border mb-6">
+    <% if @post.most_recent_comments.any? %>
+      <% @post.most_recent_comments(20).each do |comment| %>
+        <p class="py-4"><%= comment.user.name %>: <%= comment.text %></p>
+      <% end %>
+    <% else %>
+      <p>There are no comments yet.</p>
+    <% end %>
+  </div>
+
+  <%= link_to "Go Back", :back, class:'px-4 w-20 block custom-border' %>
+</section>

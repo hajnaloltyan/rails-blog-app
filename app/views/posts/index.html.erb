@@ -29,9 +29,11 @@
   <% end %>
 
   <div class="flex justify-between py-6">
-    <%= link_to "Go Back", :back, class:'py-4 w-20 block custom-border' %>
+     <a class="px-4 w-20 block custom-border" href="<%= user_path(@user) %>" >
+      Go back
+    </a>
 
-    <button class="py-4 w-20 block custom-border">
+    <button class="px-4 w-20 block custom-border">
       Pagination
     </button>
   </div>
