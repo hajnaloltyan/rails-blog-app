@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="icon" type="image/x-icon" href="<%= asset_path 'hajnalka.png' %>" />
   </head>
 
   <body>
-    <%= yield %>
+    <main class="mx-auto mt-10 px-2 flex flex-col">
+      <%= yield %>
+    </main>
   </body>
 </html>

@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   after_destroy :posts_counter_updater
 
   def most_recent_comments(limit = 5)
-    comments.order(created_at: :desc).limit(limit)
+    comments.order(created_at: :asc).limit(limit)
   end
 
   def posts_counter_updater

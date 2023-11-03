@@ -1,9 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>List of all User's Posts</title>
-</head>
-<body>
-  <h2>List of all User's Posts</h2>
-</body>
-</html>
+<section class="mx-auto">
+  <h2 class="page-title">List of all User's Posts</h2>
+
+  <article class="flex gap-6 mb-6">
+    <%= image_tag @user.photo, alt: @user.name %>
+    <div class="flex m-2 px-4 py-2 w-[80%] lg:w-[25vw] custom-border justify-between">
+      <h3 class="text-2xl font-bold self-center"><%= @user.name %></h3>
+      <p class="text-sm self-end">Number of posts: <%= @user.posts_counter %></p>
+    </div>
+  </article>
+
+  <% @posts.each do |post| %>
+    <a class="reset-link" href="<%= user_post_path(@user.id, post.id) %>">
+      <article class="flex flex-col gap-4 custom-border px-4 py-2 mb-2">
+        <h3 class="font-bold"><%= post.title %></h3>
+        <p><%= post.text %></p>
+        <h6 class="text-sm self-end">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></h6>
+      </article>
+      <div class="p-4 custom-border mb-6">
+        <% if post.most_recent_comments.any? %>
+          <% post.most_recent_comments.each do |comment| %>
+            <p class="py-4"><%= comment.user.name %>: <%= comment.text %></p>
+          <% end %>
+        <% else %>
+          <p>There are no comments yet.</p>
+        <% end %>
+      </div>
+    </a>
+  <% end %>
+
+  <div class="flex justify-between py-6">
+     <a class="px-4 w-20 block custom-border" href="<%= user_path(@user) %>" >
+      Go back
+    </a>
+
+    <button class="px-4 w-20 block custom-border">
+      Pagination
+    </button>
+  </div>
+</section>
