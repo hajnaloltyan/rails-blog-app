@@ -8,11 +8,11 @@ class CommentsController < ApplicationController
   def create
     @user = current_user
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.build(comment_params)
+    @comment = @post.comments.build(comment_params.merge(user: @user, post: @post))
     
     if @comment.valid?
       @comment.save
-      redirect_to user_post_path(@user.id, @post.id)
+      redirect_to user_post_path(@user, @post)
     else
       Rails.logger.info(@comment.errors.full_messages)
       render 'new'
@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
 
   private
 
-  def post_params
+  def comment_params
     params.require(:comment).permit(:text)
   end
 end
