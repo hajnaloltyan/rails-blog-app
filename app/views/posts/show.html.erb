@@ -2,7 +2,7 @@
   <article class="flex flex-col px-4 py-2 w-[80%] lg:w-[25vw] justify-between custom-border">
     <div class="pb-6 flex justify-between">
       <h3><%= @post.title %> by <%= @user.name %></h3>
-      <h6>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></h6>
+      <h6 class="bg-blue-200">Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></h6>
     </div>
     <p class="pt-6"><%= @post.text %></p>
   </article>
@@ -17,5 +17,5 @@
     <% end %>
   </div>
 
-  <%= link_to "Go Back", :back, class:'px-4 w-20 block custom-border' %>
+  <%= link_to "Go Back", :back, class:'px-4 custom-border' %>
 </section>
