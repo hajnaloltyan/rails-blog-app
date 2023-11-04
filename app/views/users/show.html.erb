@@ -24,6 +24,12 @@
     </a>
   <% end %>
 
+   <div class="flex justify-center mb-8">
+     <%= link_to new_user_post_path(@user), class: 'px-4 custom-border' do %>
+      <button>Add new Post</button>
+    <% end %>
+  </div>
+
   <div class="flex justify-between py-6">
     <a class="px-4 block custom-border" href="<%= users_path %>" >
       Go back
