@@ -16,6 +16,16 @@
       <p>There are no comments yet.</p>
     <% end %>
   </div>
+  
+  <div>
+    <%= button_to 'Like', user_post_likes_path(@user, @post) %>
 
-  <%= link_to "Go Back", :back, class:'px-4 custom-border' %>
+     <%= link_to new_user_post_comment_path(@user, @post) do %>
+      <button>Add comment</button>
+    <% end %>
+  </div>
+
+  <a class="px-4 custom-border" href="<%= user_posts_path(@user) %>" >
+    Go back
+  </a>
 </section>
