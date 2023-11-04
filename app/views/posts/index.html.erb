@@ -14,7 +14,7 @@
       <article class="flex flex-col gap-4 custom-border px-4 py-2 mb-2">
         <h3 class="font-bold"><%= post.title %></h3>
         <p><%= post.text %></p>
-        <h6 class="text-sm self-end">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></h6>
+        <h6 class="text-sm self-end bg-blue-200">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></h6>
       </article>
       <div class="p-4 custom-border mb-6">
         <% if post.most_recent_comments.any? %>
