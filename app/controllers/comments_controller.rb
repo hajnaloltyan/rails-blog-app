@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     @user = current_user
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params.merge(user: @user, post: @post))
-    
+
     if @comment.valid?
       @comment.save
       redirect_to user_post_path(@user, @post)
