@@ -1,0 +1,9 @@
+<h2 class="page-title">Create new Post</h2>
+
+<div class="mx-auto">
+  <%= simple_form_for @post, url: user_posts_path(@user) do |f| %>
+    <%= f.input :title, placeholder: "Post Title", required: true, label:false %>
+    <%= f.input :text, placeholder: "Post Text", required: true, label: false %>
+    <%= f.button :submit, class: 'custom-border px-4 ml-14 mt-4' %>
+  <% end %>
+</div>

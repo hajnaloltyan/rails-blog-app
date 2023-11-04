@@ -10,7 +10,7 @@
   </article>
 
   <article class="custom-border px-4 py-10 mb-6">
-    <h3 class="font-bold mb-2">Bio</h3>
+    <h3 class="font-bold text-xl mb-2">Bio</h3>
     <p><%= @user.bio %></p>
   </article>
 
@@ -24,12 +24,18 @@
     </a>
   <% end %>
 
+   <div class="flex justify-center mb-8">
+     <%= link_to new_user_post_path(@user), class: 'px-4 custom-border' do %>
+      <button>Add new Post</button>
+    <% end %>
+  </div>
+
   <div class="flex justify-between py-6">
-    <a class="px-4 w-20 block custom-border" href="<%= users_path %>" >
+    <a class="px-4 block custom-border" href="<%= users_path %>" >
       Go back
     </a>
 
-    <a class="px-4 w-20 block custom-border" href="<%= user_posts_path(@user) %>" >
+    <a class="px-4 block custom-border" href="<%= user_posts_path(@user) %>" >
       See all posts
     </a>
   </div>
