@@ -17,10 +17,10 @@
     <% end %>
   </div>
   
-  <div>
-    <%= button_to 'Like', user_post_likes_path(@user, @post) %>
+  <div class="flex justify-between mb-8">
+    <%= button_to 'Like', user_post_likes_path(@user, @post), class: 'px-4 custom-border' %>
 
-     <%= link_to new_user_post_comment_path(@user, @post) do %>
+     <%= link_to new_user_post_comment_path(@user, @post), class: 'px-4 custom-border' do %>
       <button>Add comment</button>
     <% end %>
   </div>

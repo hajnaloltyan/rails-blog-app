@@ -1,8 +1,8 @@
-<h2>Add comment</h2>
+<h2 class="page-title">Add comment</h2>
 
-<div>
+<div class="mx-auto">
   <%= simple_form_for @comment, url: user_post_comments_path(@user.id, @post.id) do |f| %>
-    <%= f.input :text, :placeholder => "Comment", required: true %>
-    <%= f.button :submit %>
+    <%= f.input :text, placeholder: "Comment", required: true, label: false %>
+    <%= f.button :submit, class: 'px-4 custom-border mt-6 ml-8' %>
   <% end %>
 </div>
