@@ -5,7 +5,7 @@ class LikesController < ApplicationController
 
   def create
     @user = current_user
-    @post = Post.find(params[:post_id])
+    @post = Post.includes(:likes).find(params[:post_id])
     @like = @post.likes.build(user: @user, post: @post)
 
     if @like.valid?
