@@ -110,6 +110,14 @@ Create the database and start the app:
 ```
 Navigate to http://localhost:3000 and see the functional app.
 
+In order to see the **Confirmation Email** after Sign up:
+
+```sh
+  gem install mailcatcher
+  mailcatcher
+```
+Go to http://127.0.0.1:1080/ to see the emails.
+
 For linter errors:
 
 ```sh
