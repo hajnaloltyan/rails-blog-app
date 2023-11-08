@@ -1,6 +1,6 @@
 <h2>Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -10,11 +10,20 @@
     <%= f.input :password_confirmation, required: true, label: false, input_html: { autocomplete: "new-password", placeholder: 'Confirm your password' } %>
     <%= f.input :bio, label: false, placeholder: 'Enter your bio' %>
     <%= f.input :photo, label: false, placeholder: 'Enter your photo link' %>
+    <%= f.input :posts_counter, as: :hidden, input_html: { value: 0 } %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
   </div>
+
+  <% if resource.errors.any? %>
+    <ul>
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
 <% end %>
 
 <%= render "devise/shared/links" %>
