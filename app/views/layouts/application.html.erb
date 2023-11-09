@@ -13,7 +13,26 @@
   </head>
 
   <body>
-    <main class="mx-auto mt-10 px-2 flex flex-col">
+    <main class="mx-auto px-2 flex flex-col">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <nav class="flex mx-auto items-center justify-center bg-teal-700 p-6">
+        <div class="flex flex-shrink-0 text-white mr-8">
+          <%= link_to 'Blog App', users_path, class: 'font-semibold text-xl tracking-tight' %>
+        </div>
+        <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+          <div class="text-sm flex flex-wrap items-baseline">
+            <% if user_signed_in? %>
+              <%= link_to 'Edit profile', edit_user_registration_path, class: 'block lg:inline-block text-teal-200 hover:text-white mr-4' %>
+              <%= button_to 'Logout', destroy_user_session_path, method: :delete, class:'inline-block text-teal-200 hover:text-white bg-transparent border-none' %>
+            <% else %>
+              <%= link_to 'Sign up', new_user_registration_path, class: 'block lg:inline-block text-teal-200 hover:text-white mr-4' %>
+              <%= link_to 'Login', new_user_session_path, class: 'block lg:inline-block text-teal-200 hover:text-white' %>
+            <% end %>
+          </div>
+        </div>
+      </nav>
       <%= yield %>
     </main>
   </body>

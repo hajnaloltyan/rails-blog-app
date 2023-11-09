@@ -9,3 +9,7 @@
 .custom-border {
   @apply border-2 border-black;
 }
+
+.form-fields-name {
+  @apply text-xl font-bold mb-2;
+}

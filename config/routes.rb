@@ -15,5 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'users#index' 
+  devise_for :users, path: 'auth'
+
+  root to: 'users#index' 
 end

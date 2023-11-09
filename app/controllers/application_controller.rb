@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user
+  before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def current_user
-    @user = User.first
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name bio photo posts_counter])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[name bio photo])
   end
 end

@@ -30,6 +30,8 @@ gem 'better_errors', '~> 2.10', '>= 2.10.1'
 
 gem 'simple_form', '~> 5.3'
 
+gem 'devise', '~> 4.9', '>= 4.9.3'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
@@ -59,6 +61,8 @@ group :development do
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
+
+  gem 'letter_opener', '~> 1.8', '>= 1.8.1'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
