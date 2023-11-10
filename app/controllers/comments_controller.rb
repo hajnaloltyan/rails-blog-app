@@ -1,12 +1,23 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
+  before_action :set_user
+
+  def index
+    @post = Post.includes(:comments).find(params[:post_id])
+    @comments = @post.comments
+  end
+
+  def show
+    @post = Post.includes(:comments).find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+  end
+
   def new
-    @user = User.includes(:posts).find(params[:user_id])
     @post = Post.includes(:comments).find(params[:post_id])
     @comment = Comment.new
   end
 
   def create
-    @user = User.includes(:posts).find(params[:user_id])
     @post = Post.includes(:comments).find(params[:post_id])
     @comment = @post.comments.build(comment_params.merge(user: @user, post: @post))
 
@@ -20,7 +31,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy 
-    @user = User.includes(:posts).find(params[:user_id])
     @post = Post.includes(:comments).find(params[:post_id])
     @comment = Comment.includes(:user, :post).find(params[:id])
     @comment.destroy
@@ -31,5 +41,9 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:text)
+  end
+
+  def set_user
+    @user = User.includes(:posts).find(params[:user_id])
   end
 end
