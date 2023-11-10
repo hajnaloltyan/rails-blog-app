@@ -1,12 +1,12 @@
 class CommentsController < ApplicationController
   def new
-    @user = current_user
+    @user = User.includes(:posts).find(params[:user_id])
     @post = Post.includes(:comments).find(params[:post_id])
     @comment = Comment.new
   end
 
   def create
-    @user = current_user
+    @user = User.includes(:posts).find(params[:user_id])
     @post = Post.includes(:comments).find(params[:post_id])
     @comment = @post.comments.build(comment_params.merge(user: @user, post: @post))
 
@@ -17,6 +17,14 @@ class CommentsController < ApplicationController
       Rails.logger.info(@comment.errors.full_messages)
       render 'new'
     end
+  end
+
+  def destroy 
+    @user = User.includes(:posts).find(params[:user_id])
+    @post = Post.includes(:comments).find(params[:post_id])
+    @comment = Comment.includes(:user, :post).find(params[:id])
+    @comment.destroy
+    redirect_to user_post_path(@user, @post)
   end
 
   private
