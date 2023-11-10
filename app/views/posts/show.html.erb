@@ -7,10 +7,11 @@
     <p class="pt-6"><%= @post.text %></p>
   </article>
 
-  <div class="px-4 py-2 custom-border mb-6">
+  <div class="px-4 py-2 custom-border mb-6 flex justify-between">
     <% if @post.most_recent_comments.any? %>
       <% @post.most_recent_comments(20).each do |comment| %>
         <p class="py-4"><%= comment.user.name %>: <%= comment.text %></p>
+        <%= link_to 'Delete Comment', user_post_path(@user.id, @post.id), method: :delete, class: 'px-4 custom-border self-center bg-red-300' %>
       <% end %>
     <% else %>
       <p>There are no comments yet.</p>
@@ -25,7 +26,11 @@
     <% end %>
   </div>
 
-  <a class="px-4 custom-border" href="<%= user_posts_path(@user) %>" >
-    Go back
-  </a>
+  <div class="flex justify-between mb-8">
+    <a class="px-4 custom-border" href="<%= user_posts_path(@user) %>" >
+      Go back
+    </a>
+
+    <%= link_to 'Delete Post', user_post_path(@user.id, @post.id), method: :delete, class: 'px-4 custom-border bg-red-300' %>
+  </div>
 </section>
