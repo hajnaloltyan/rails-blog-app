@@ -6,7 +6,7 @@ class Ability
     if user.role == 'admin'
       can :manage, :all
     elsif user.role == 'user'
-      can :manage, Post, user_id: user.id
+      can :manage, Post, author_id: user.id
       can :manage, Comment, user_id: user.id
       can :create, Like, user_id: user.id
     else
