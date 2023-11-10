@@ -27,7 +27,7 @@
 
 # 📖 Blog App <a name="about-project"></a>
 
-This is a **Blog App** created with Ruby on Rails, to manage posts, users, comments and likes.
+This is a **Blog App** created with Ruby on Rails, to manage posts, users, comments and likes. With options to log-in and sign-up, new users can be added, and their can be creating new posts, add comments, and like any posts, just as well to delete their profile, any of the posts or comments. User's profile can also be edited along with with the password.
 
 ## 🛠 Built With <a name="built-with"></a>
 
