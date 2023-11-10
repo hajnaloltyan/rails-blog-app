@@ -11,7 +11,7 @@
     <% if @post.most_recent_comments.any? %>
       <% @post.most_recent_comments(20).each do |comment| %>
         <p class="py-4"><%= comment.user.name %>: <%= comment.text %></p>
-        <%= link_to 'Delete Comment', user_post_path(@user.id, @post.id), data: { method: :delete }, class: 'px-4 custom-border self-center bg-red-300' %>
+        <%= link_to 'Delete Comment', user_post_path(@user.id, @post.id), method: :delete, class: 'px-4 custom-border self-center bg-red-300' %>
       <% end %>
     <% else %>
       <p>There are no comments yet.</p>

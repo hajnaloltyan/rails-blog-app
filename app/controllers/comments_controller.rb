@@ -32,10 +32,11 @@ class CommentsController < ApplicationController
 
   def destroy
     Rails.logger.info "Parameters: #{params.inspect}"
-    @post = Post.includes(:comments).find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
+    @post = @comment.post
+    @user = @comment.user
     @comment.destroy
-    redirect_to post_path(@post)
+    redirect_to user_post_path(@user.id, @post.id)
   end
 
   private
